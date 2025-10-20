@@ -103,20 +103,6 @@ public:
 	}
 };
 
-
-std::vector<double> answer0(double x, const std::vector<double>& S) {
-	std::vector<double> Y(S.size());
-	double C2 = (S[0] + S[1]) / 2, C1 = (S[1] - S[0]) / 2;
-	std::vector<double> v1(2), v2(2);
-
-	v1[0] = -1.0;	v2[0] = 1.0;
-	v1[1] = 1.0;	v2[1] = 1.0;
-
-	Y = C1 * exp(-1000 * x) * v1 + C2 * exp(-0.01 * x) * v2;
-
-	return Y;
-}
-
 std::vector<double> answer1(double x, const std::vector<double>& S) {
 	std::vector<double> Y(S.size());
 
@@ -144,8 +130,6 @@ public:
 	Answer(int type) : Type(type) {}
 	std::vector<double> operator() (double x, const std::vector<double>& S) const {
 		switch (Type) {
-		case 0:
-			return answer0(x, S);
 		case 1:
 			return answer1(x, S);
 		case 2:
